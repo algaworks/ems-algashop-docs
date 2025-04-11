@@ -665,7 +665,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWG80OLZpK+lA="
 									},
-									"name": "LoyaltyPoints"
+									"name": "LoyaltyPoints",
+									"type": ""
 								}
 							]
 						},
@@ -707,7 +708,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWG87WCpptkvs="
 									},
-									"name": "FullName"
+									"name": "FullName",
+									"type": ""
 								}
 							]
 						},
@@ -725,7 +727,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWG8+jKJp2zBs="
 									},
-									"name": "Email"
+									"name": "Email",
+									"type": ""
 								}
 							]
 						},
@@ -743,7 +746,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGWG8+/Mpp/dB4="
 									},
-									"name": "Phone"
+									"name": "Phone",
+									"type": ""
 								}
 							]
 						}
