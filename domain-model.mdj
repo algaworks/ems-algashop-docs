@@ -16205,7 +16205,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Shopping Cart Aggregate",
+					"name": "ShoppingCart Aggregate",
 					"ownedViews": [
 						{
 							"_type": "UMLClassView",
