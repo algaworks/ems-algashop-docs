@@ -979,9 +979,6 @@ components:
         phone:
           type: string
           example: "1191234564"
-        archived:
-          type: boolean
-          example: false
     OrderStatus:
       type: string
       example: "PLACED"
