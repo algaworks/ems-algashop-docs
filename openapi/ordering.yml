@@ -250,7 +250,7 @@ paths:
                   content:
                     type: array
                     items:
-                      $ref: "#/components/schemas/CustomerSummary"
+                      $ref: "#/components/schemas/OrderSummary"
   /api/v1/orders/{orderId}: 
       get:
         tags:
