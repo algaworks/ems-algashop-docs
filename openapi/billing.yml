@@ -6,7 +6,7 @@ info:
 
 servers:
   - description: Development
-    url: "http://localhost:8082/"
+    url: "http://localhost:8082"
   - description: Production
     url: "https://api.algashop.com"
 
