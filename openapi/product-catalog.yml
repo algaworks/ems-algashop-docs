@@ -236,7 +236,7 @@ paths:
           description: Only enabled categories
           required: false
         - schema:
-            type: boolean
+            type: string
             example: true
           in: query
           name: name
