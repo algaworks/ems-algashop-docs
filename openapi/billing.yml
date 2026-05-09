@@ -1,8 +1,8 @@
-openapi: 3.0.4
+openapi: 3.1.0
 
 info:
   title: AlgaShop - Billing API
-  version: "1.0"
+  version: "2.0"
 
 servers:
   - description: Development
@@ -62,7 +62,7 @@ paths:
         "404":
           $ref: "#/components/responses/NotFound"
 
-  /api/v1/customers/{customerId}/credit-cards:
+  /api/v1/customers/me/credit-cards:
     get:
       tags:
         - Credit Cards
@@ -87,13 +87,6 @@ paths:
     post:
       tags:
         - Credit Cards
-      parameters:
-        - schema:
-            type: string
-          name: customerId
-          in: path
-          required: true
-          example: "28fcd9fb-4ce7-44d6-9583-14d8b3dc5aff"
       requestBody:
         required: true
         content:
@@ -111,17 +104,11 @@ paths:
           $ref: "#/components/responses/BadRequest"
         "404":
           $ref: "#/components/responses/NotFound"
-  /api/v1/customers/{customerId}/credit-cards/{creditCardId}:
+  /api/v1/customers/me/credit-cards/{creditCardId}:
     get:
       tags:
         - Credit Cards
       parameters:
-        - schema:
-            type: string
-          name: customerId
-          in: path
-          required: true
-          example: "28fcd9fb-4ce7-44d6-9583-14d8b3dc5aff"
         - schema:
             type: string
           name: creditCardId
