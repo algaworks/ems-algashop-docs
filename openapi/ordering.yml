@@ -195,6 +195,27 @@ paths:
           $ref: "#/components/responses/NotFound"
 
   /api/v1/customers/me/shopping-cart:
+    post:
+      tags:
+        - My Shopping Cart
+      description: Create the authenticated customer's shopping cart
+      responses:
+        201:
+          description: Created
+          headers:
+            Location:
+              description: URL of the authenticated customer's shopping cart
+              schema:
+                type: string
+                example: "/api/v1/customers/me/shopping-cart"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ShoppingCart"
+        404:
+          $ref: "#/components/responses/NotFound"
+        422:
+          $ref: "#/components/responses/UnprocessableEntity"
     get:
       tags:
         - My Shopping Cart
