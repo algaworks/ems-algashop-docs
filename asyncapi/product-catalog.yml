@@ -26,6 +26,17 @@ channels:
           min.insync.replicas: 2
         bindingVersion: "0.5.0"
 
+operations:
+  sendProductEvents:
+    action: send # Producer
+    channel:
+      $ref: "#/channels/productEvents"
+    summary: Publishes product events
+    tags:
+      - name: Products
+    messages:
+      - $ref: "#/channels/productEvents/messages/productAdded"
+
 components:
   messages:
     ProductAddedEvent:
@@ -47,7 +58,6 @@ components:
             type: string
             format: date-time
             description: Date and time when a product was added.
-            example: "2024-04-04T00:12:45Z"
       headers:
         type: object
         required:
