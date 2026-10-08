@@ -42,8 +42,8 @@ channels:
     messages:
       issueInvoice:
         $ref: "./messages.yml#/components/messages/IssueInvoiceCommand"
-      refundInvoice:
-        $ref: "./messages.yml#/components/messages/RefundInvoiceCommand"
+      cancelInvoice:
+        $ref: "./messages.yml#/components/messages/CancelInvoiceCommand"
     bindings:
       kafka:
         topic: billing.invoice.commands
@@ -60,8 +60,8 @@ channels:
     messages:
       issueInvoice:
         $ref: "./messages.yml#/components/messages/IssueInvoiceCommand"
-      refundInvoice:
-        $ref: "./messages.yml#/components/messages/RefundInvoiceCommand"
+      cancelInvoice:
+        $ref: "./messages.yml#/components/messages/CancelInvoiceCommand"
     bindings:
       kafka:
         topic: billing.dlt.billing.invoice.commands
@@ -101,7 +101,7 @@ operations:
       - name: Commands
     messages:
       - $ref: "#/channels/invoiceCommands/messages/issueInvoice"
-      - $ref: "#/channels/invoiceCommands/messages/refundInvoice"
+      - $ref: "#/channels/invoiceCommands/messages/cancelInvoice"
     reply:
       address:
         description: Reply topic chosen by the sender of the command.
@@ -153,7 +153,7 @@ operations:
       - name: Dead letter
     messages:
       - $ref: "#/channels/invoiceCommandsDeadLetter/messages/issueInvoice"
-      - $ref: "#/channels/invoiceCommandsDeadLetter/messages/refundInvoice"
+      - $ref: "#/channels/invoiceCommandsDeadLetter/messages/cancelInvoice"
 
   publishFailedInvoiceEvents:
     action: send

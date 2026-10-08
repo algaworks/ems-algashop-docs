@@ -233,19 +233,19 @@ components:
       traits:
         - $ref: "#/components/messageTraits/KafkaOrderKey"
 
-    RefundInvoiceCommand:
-      name: RefundInvoiceCommand
+    CancelInvoiceCommand:
+      name: CancelInvoiceCommand
       title: Refund Invoice Command
       summary: Asks Billing to refund the invoice of an order (compensation).
       contentType: application/json
       tags:
         - name: Commands
       headers:
-        $ref: "#/components/schemas/RefundInvoiceHeaders"
+        $ref: "#/components/schemas/CancelInvoiceHeaders"
       correlationId:
         $ref: "#/components/correlationIds/CorrelationId"
       payload:
-        $ref: "#/components/schemas/RefundInvoicePayload"
+        $ref: "#/components/schemas/CancelInvoicePayload"
       traits:
         - $ref: "#/components/messageTraits/KafkaOrderKey"
 
@@ -567,7 +567,7 @@ components:
               const: Ordering.IssueInvoiceIntegrationCommand
               description: Logical type used by the Jackson deserializer.
 
-    RefundInvoiceHeaders:
+    CancelInvoiceHeaders:
       allOf:
         - $ref: "#/components/schemas/CommandHeaders"
         - type: object
@@ -576,7 +576,7 @@ components:
           properties:
             __TypeId__:
               type: string
-              const: Ordering.RefundInvoiceIntegrationCommand
+              const: Billing.CancelInvoiceIntegrationCommand
               description: Logical type used by the Jackson deserializer.
 
     ReserveStockHeaders:
@@ -1129,7 +1129,7 @@ components:
         billing:
           $ref: "#/components/schemas/BillingSnapshot"
 
-    RefundInvoicePayload:
+    CancelInvoicePayload:
       type: object
       required:
         - orderId

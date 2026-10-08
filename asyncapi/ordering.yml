@@ -75,8 +75,8 @@ channels:
     messages:
       issueInvoice:
         $ref: "./messages.yml#/components/messages/IssueInvoiceCommand"
-      refundInvoice:
-        $ref: "./messages.yml#/components/messages/RefundInvoiceCommand"
+      cancelInvoice:
+        $ref: "./messages.yml#/components/messages/CancelInvoiceCommand"
     bindings:
       kafka:
         topic: billing.invoice.commands
@@ -220,7 +220,7 @@ operations:
       - name: Place Order Saga
     messages:
       - $ref: "#/channels/invoiceCommands/messages/issueInvoice"
-      - $ref: "#/channels/invoiceCommands/messages/refundInvoice"
+      - $ref: "#/channels/invoiceCommands/messages/cancelInvoice"
     reply:
       channel:
         $ref: "#/channels/sagaReplies"
