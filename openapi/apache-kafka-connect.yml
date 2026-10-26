@@ -351,6 +351,43 @@ paths:
       x-microcks-operation:
         delay: 0
         dispatcher: FALLBACK
+  /connectors/{connector}/offsets:
+    delete:
+      summary: Apache kafka Reset Connector Offsets
+      description: Reseta os offsets do conector (KIP-875). O conector precisa estar parado (`PUT /connectors/{connector}/stop`); caso contrário a API responde 400. Para conectores source como o Debezium, o próximo start refaz o snapshot.
+      operationId: resetConnectorOffsets
+      tags:
+      - Connectors
+      parameters:
+      - name: connector
+        in: path
+        required: true
+        schema:
+          type: string
+        example: example-value
+      responses:
+        '200':
+          description: Offsets resetados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+              examples:
+                resetConnectorOffsets200Example:
+                  summary: Default resetConnectorOffsets 200 response
+                  x-microcks-default: true
+                  value:
+                    message: The Connect framework-managed offsets for this connector have been reset successfully. However, if this connector manages offsets externally, they will need to be manually reset in the system that the connector uses.
+        '400':
+          description: O conector não está parado (estado diferente de STOPPED)
+        '404':
+          description: Connector not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /connector-plugins:
     get:
       summary: Apache kafka List Connector Plugins
